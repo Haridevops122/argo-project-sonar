@@ -31,7 +31,10 @@ jobs:
         run: ./mvnw clean package
 
       - name: SonarQube Analysis
-        run: ./mvnw sonar:sonar
+        run: >
+          ./mvnw
+          org.sonarsource.scanner.maven:sonar-maven-plugin:5.5.0.6356:sonar
+          -Dsonar.projectKey=Java-Devops-App
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
