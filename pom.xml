@@ -21,6 +21,7 @@
 
     <properties>
         <java.version>21</java.version>
+        <sonar.projectKey>Java-Devops-App</sonar.projectKey>
     </properties>
 
     <dependencies>
