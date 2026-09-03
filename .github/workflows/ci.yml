@@ -39,3 +39,6 @@ jobs:
 
       - name: Check Docker
         run: docker --version
+
+      - name: Build Docker image
+        run: docker build -t java-devops-app:1.0 .
