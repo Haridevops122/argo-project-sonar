@@ -42,3 +42,12 @@ jobs:
 
       - name: Build Docker image
         run: docker build -t java-devops-app:1.0 .
+
+      - name: Trivy Security Scan
+        uses: aquasecurity/trivy-action@0.36.0
+        with:
+          image-ref: 'java-devops-app:1.0'
+          format: 'table'
+          exit-code: '1'
+          ignore-unfixed: true
+          severity: 'CRITICAL,HIGH'
