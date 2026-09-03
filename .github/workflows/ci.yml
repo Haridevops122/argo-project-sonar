@@ -36,3 +36,6 @@ jobs:
 
       - name: Build with Maven
         run: ./mvnw clean package
+
+      - name: Check Docker
+        run: docker --version
