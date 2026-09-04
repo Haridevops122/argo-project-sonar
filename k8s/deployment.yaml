@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: java-devops-app
-          image: devclouds/java-devops-app:1b3f87fd28db273aaf77c40062b0607972ba420e
+          image: devclouds/java-devops-app:1.0.1
           ports:
             - containerPort: 8080
