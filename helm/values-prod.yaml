@@ -1,0 +1,14 @@
+name: java-devops-app
+
+replicaCount: 3
+
+image:
+  repository: devclouds/java-devops-app
+  tag: "1.0.0"
+
+containerPort: 8080
+
+service:
+  type: NodePort
+  port: 8080
+  nodePort: 30082
