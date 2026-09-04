@@ -1,0 +1,7 @@
+resources:
+  - ../../base
+
+namePrefix: qa-
+
+patches:
+  - path: deployment-patch.yaml

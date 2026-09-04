@@ -1,0 +1,11 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java-devops-app
+spec:
+  replicas: 3
+  template:
+    spec:
+      containers:
+        - name: java-devops-app
+          image: devclouds/java-devops-app:1.0.5
