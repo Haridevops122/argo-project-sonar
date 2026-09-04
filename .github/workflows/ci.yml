@@ -41,12 +41,13 @@ jobs:
         run: docker --version
 
       - name: Build Docker image
-        run: docker build -t java-devops-app:1.0 .
+        run: |
+          docker build -t java-devops-app:${{ github.sha }} .
 
       - name: Trivy Security Scan
         uses: aquasecurity/trivy-action@v0.36.0
         with:
-          image-ref: 'java-devops-app:1.0'
+          image-ref: 'java-devops-app:${{ github.sha }}'
           format: 'table'
           exit-code: '0'
           ignore-unfixed: true
@@ -58,7 +59,11 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+      - name: Tag Docker image
+        run: |
+          docker tag java-devops-app:${{ github.sha }} \
+            devclouds/java-devops-app:${{ github.sha }}
+
       - name: Push Docker image
         run: |
-          docker tag java-devops-app:1.0 devclouds/java-devops-app:1.0
-          docker push devclouds/java-devops-app:1.0          
+          docker push devclouds/java-devops-app:${{ github.sha }}
